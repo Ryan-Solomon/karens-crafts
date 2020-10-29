@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Card } from 'react-bootstrap';
 import { ProductData } from '../types/types';
+import Rating from './Rating';
 
 interface Props {
-  key: string;
   product: ProductData;
 }
 
@@ -20,9 +20,10 @@ const Product: FC<Props> = ({ product }) => {
           </Card.Title>
         </a>
         <Card.Text as='div'>
-          <div className='my-3'>
-            {product.rating} from {product.numReviews} reviews
-          </div>
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews} reviews`}
+          />
         </Card.Text>
         <Card.Text as='h3'>${product.price}</Card.Text>
       </Card.Body>
