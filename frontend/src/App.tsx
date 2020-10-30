@@ -14,6 +14,7 @@ function App() {
       <main className='py-3'>
         <Container>
           <Route exact path='/' component={HomeScreen} />
+          {/* @ts-ignore */}
           <Route path='/product/:id' component={ProductScreen} />
         </Container>
       </main>
