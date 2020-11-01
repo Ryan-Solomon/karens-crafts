@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import Rating from './../components/Rating';
-import products from './../products';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import { ProductData } from '../types/types';
@@ -23,7 +22,7 @@ function ProductScreen({ match }: RouteComponentProps<TParams>) {
       setLoading(false);
     };
     fetchProduct();
-  }, []);
+  }, [match]);
 
   if (loading) return <h1>Loading...</h1>;
   if (!product) return;
