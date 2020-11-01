@@ -15,7 +15,7 @@ function App() {
         <Container>
           <Route exact path='/' component={HomeScreen} />
           {/* @ts-ignore */}
-          <Route path='/product/:id' component={ProductScreen} />
+          <Route path='/products/:id' component={ProductScreen} />
         </Container>
       </main>
       <Footer />

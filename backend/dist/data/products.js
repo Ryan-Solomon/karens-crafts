@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const products = [
+exports.products = void 0;
+exports.products = [
     {
         _id: '1',
         name: 'Airpods Wireless Bluetooth Headphones',
@@ -74,5 +75,4 @@ const products = [
         numReviews: 12,
     },
 ];
-exports.default = products;
 //# sourceMappingURL=products.js.map

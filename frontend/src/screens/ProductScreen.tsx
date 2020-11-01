@@ -1,15 +1,33 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import Rating from './../components/Rating';
 import products from './../products';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
+import { ProductData } from '../types/types';
+import axios, { AxiosResponse } from 'axios';
 
 type TParams = { id: string };
 
 function ProductScreen({ match }: RouteComponentProps<TParams>) {
-  const product = products.find((p) => p._id === match.params.id);
+  const [product, setProduct] = useState<ProductData | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      setLoading(true);
+      const { data }: AxiosResponse<ProductData> = await axios.get(
+        `/api/products/${match.params.id}`
+      );
+      setProduct(data);
+      setLoading(false);
+    };
+    fetchProduct();
+  }, []);
+
+  if (loading) return <h1>Loading...</h1>;
   if (!product) return;
+
   return (
     <>
       <Link className='btn btn-light my-3' to='/'>
