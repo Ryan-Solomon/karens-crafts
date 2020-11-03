@@ -9,6 +9,7 @@ interface Props {
 }
 
 const Product: FC<Props> = ({ product }) => {
+  console.log(product);
   return (
     <Card className='my-3 p-3 rounded'>
       <Link to={`/products/${product._id}`}>
