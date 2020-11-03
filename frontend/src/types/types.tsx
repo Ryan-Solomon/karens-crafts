@@ -10,3 +10,8 @@ export type ProductData = {
   rating: number;
   numReviews: number;
 };
+
+export type Action = {
+  type: string;
+  payload: unknown;
+};
