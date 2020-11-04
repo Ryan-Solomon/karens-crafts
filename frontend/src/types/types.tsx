@@ -9,6 +9,8 @@ export type ProductData = {
   countInStock: number;
   rating: number;
   numReviews: number;
+  product?: string;
+  qty?: string | number;
 };
 
 export type Action = {
