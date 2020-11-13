@@ -6,6 +6,7 @@ import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CartScreen from './screens/CartScreen';
+import LoginScreen from './screens/LoginScreen';
 
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
 
       <main className='py-3'>
         <Container>
-          <Route exact path='/' component={HomeScreen} />
           {/* @ts-ignore */}
+          <Route path='/login' component={LoginScreen} />
           <Route path='/products/:id' component={ProductScreen} />
           <Route path='/cart/:id?' component={CartScreen} />
+          <Route exact path='/' component={HomeScreen} />
         </Container>
       </main>
       <Footer />
